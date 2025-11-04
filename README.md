@@ -94,6 +94,49 @@ The built files will be in the `dist` directory.
 npm run preview
 ```
 
+## Deployment
+
+### GitHub Pages
+
+This project is configured to automatically deploy to GitHub Pages when changes are pushed to the `main` branch.
+
+#### Setup Instructions
+
+1. **Enable GitHub Pages in your repository**:
+   - Go to your repository on GitHub
+   - Navigate to Settings → Pages
+   - Under "Build and deployment", select "GitHub Actions" as the source
+
+2. **Push to main branch**:
+   ```bash
+   git push origin main
+   ```
+
+3. **Monitor deployment**:
+   - Go to the "Actions" tab in your GitHub repository
+   - Watch the "Deploy to GitHub Pages" workflow run
+   - Once completed, your site will be live at: `https://<your-username>.github.io/partschi-site/`
+
+#### Manual Deployment
+
+You can also trigger a deployment manually:
+- Go to Actions tab → "Deploy to GitHub Pages" workflow
+- Click "Run workflow" → Select "main" branch → "Run workflow"
+
+#### Base Path Configuration
+
+The site is configured with base path `/partschi-site/` in `vite.config.ts`. If you rename your repository or deploy to a different location, update the `base` property accordingly:
+
+```typescript
+// vite.config.ts
+export default defineConfig({
+  base: '/your-repo-name/',
+  // ...
+})
+```
+
+For deployment to a custom domain or root path, set `base: '/'`.
+
 ## Customization
 
 ### Adding Blog Posts
